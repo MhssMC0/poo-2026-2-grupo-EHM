@@ -34,4 +34,10 @@ public class Mago extends Personagem {
         super.ficha();
         System.out.println("Mana: " + getMana());
     }
+
+    //sobrescrita da habilidade do personagem
+    @Override 
+    public String habilidade(){
+        return "Rajada arcana";
+    }
 }
