@@ -1,3 +1,12 @@
+/*
+USO DE IA
+
+Usamos IA para tirar duvidas sobre quase tudo relacionado a OO, Encapsulamento, Sobrecarga, Herança, polimorfismo
+ArrayList, Sobrescrita com @Overraide Tratamento de Exceção, Interface gráfica e etc.
+
+Demos uma olhada no nosso código anterior para ter um norte do que fazer.
+*/
+
 import java.util.ArrayList;
 
 public class Main {
