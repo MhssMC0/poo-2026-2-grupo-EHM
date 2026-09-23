@@ -33,4 +33,11 @@ public class Guerreiro extends Personagem{
         super.ficha();
         System.out.println("Defesa: " + getDefesa());
     }
+
+    //sobrescrita da habilidade do personagem
+    @Override 
+    public String habilidade(){
+        return "Escudo de aco";
+        
+    }
 }

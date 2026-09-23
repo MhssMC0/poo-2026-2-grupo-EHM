@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Personagem {
+public abstract class Personagem {
     private String nome;
     private int vida;
     private int forca;
@@ -8,9 +8,12 @@ public class Personagem {
     private int bonus;
     private ArrayList<Item> inventario = new ArrayList<>();
 
+    //metodo abstrato de habilidade
+    public abstract String habilidade();
+
     // set da vida
     public void setVida(int vida) {
-        if (vida < 0 || vida > 100) {
+        if (vida < 0 || vida > 999) {
             System.out.println("Erro, vida invalida!");
             return;
         }
