@@ -9,7 +9,7 @@ public class Guerreiro extends Personagem{
     //metodo para definir o valor da defesa
     public void setDefesa(int defesa){
         if(defesa < 0){
-            System.out.println("Erro, defesa invalida!");
+            throw new IllegalArgumentException("A defesa deve ser maior ou igual a 0. Valor recebido: " + defesa + ".");
         }
 
         this.defesa = defesa;
@@ -39,5 +39,15 @@ public class Guerreiro extends Personagem{
     public String habilidade(){
         return "Escudo de aco";
         
+    }
+
+    //metodo para tentar um golpe especial que exige mais força
+    public void golpeEspecial(Personagem alvo) throws ForcaInsuficienteException {
+        if (getForca() < 25) {
+            throw new ForcaInsuficienteException(getForca());
+        }
+
+        System.out.println(getNome() + " usou o golpe especial em " + alvo.getNome() + " causando 30 de dano!");
+        alvo.receberDano(30);
     }
 }

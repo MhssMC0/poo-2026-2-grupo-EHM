@@ -14,8 +14,7 @@ public abstract class Personagem {
     // set da vida
     public void setVida(int vida) {
         if (vida < 0 || vida > 999) {
-            System.out.println("Erro, vida invalida!");
-            return;
+            throw new IllegalArgumentException("A vida deve estar entre 0 e 999. Valor recebido: " + vida + ".");
         }
         this.vida = vida;
     }
@@ -28,8 +27,7 @@ public abstract class Personagem {
     // set do nome
     public void setNome(String nome) {
         if (nome == null || nome.isEmpty()) {
-            System.out.println("Erro, nome vazio!");
-            return;
+            throw new IllegalArgumentException("O nome não pode ser vazio.");
         }
         this.nome = nome;
     }
@@ -42,8 +40,7 @@ public abstract class Personagem {
     // set da força
     public void setForca(int forca) {
         if (forca < 1) {
-            System.out.println("Erro, forca invalida!");
-            return;
+            throw new IllegalArgumentException("A força deve ser maior ou igual a 1. Valor recebido: " + forca + ".");
         }
         this.forca = forca;
     }
@@ -56,8 +53,7 @@ public abstract class Personagem {
     // set do nivel
     public void setNivel(int nivel) {
         if (nivel < 1) {
-            System.out.println("Erro, nivel invalido!");
-            return;
+            throw new IllegalArgumentException("O nível deve ser maior ou igual a 1. Valor recebido: " + nivel + ".");
         }
         this.nivel = nivel;
     }
@@ -94,8 +90,8 @@ public abstract class Personagem {
 
     // metodo padrão para atacar
     public void atacar(Personagem alvo) {
-        System.out.println(nome + " atacou " + alvo.getNome() + " causando " + (forca + bonus) +" de dano!");
-        alvo.receberDano(forca+bonus);
+        System.out.println(nome + " atacou " + alvo.getNome() + " causando " + (forca + bonus) + " de dano!");
+        alvo.receberDano(forca + bonus);
     }
 
     // metado para adicionar item na lista
@@ -105,7 +101,7 @@ public abstract class Personagem {
 
     // metodo para atacar
     public void atacar(Personagem alvo, int dano) {
-        System.out.println(nome + " atacou " + alvo.getNome() + " causando " + dano +" de dano!");
+        System.out.println(nome + " atacou " + alvo.getNome() + " causando " + dano + " de dano!");
         alvo.receberDano(dano);
     }
 

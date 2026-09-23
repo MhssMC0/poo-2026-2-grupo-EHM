@@ -18,8 +18,7 @@ public class Item{
     //metodo para definir o nome do item
      public void setNome(String nome){
         if(nome == null || nome.isEmpty()){
-            System.out.println("Erro, nome vazio.");
-            return;
+            throw new IllegalArgumentException("O nome do item não pode ser vazio.");
         }
         this.nome = nome;
      }
@@ -32,8 +31,7 @@ public class Item{
     //metodo para definir o bonus do item
     public void setBonus(int bonus){
         if(bonus < 1){
-            System.out.println("Bonus invalido.");
-            return;
+            throw new IllegalArgumentException("O bônus deve ser maior ou igual a 1. Valor recebido: " + bonus + ".");
         }
         this.bonus = bonus;
     }
@@ -42,7 +40,4 @@ public class Item{
     public void descricao (){
         System.out.println(nome + " (" +"+"+ bonus +")");
      }
-
-
-
 }
