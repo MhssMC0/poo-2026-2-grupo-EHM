@@ -10,7 +10,7 @@ public class Mago extends Personagem {
     //metodo para setar o valor da mana
     public void setMana(int mana){
         if(mana < 0){
-            System.out.println("Erro, mana invalida!");
+            throw new IllegalArgumentException("A mana deve ser maior ou igual a 0. Valor recebido: " + mana + ".");
         }
 
         this.mana = mana;
@@ -39,5 +39,16 @@ public class Mago extends Personagem {
     @Override 
     public String habilidade(){
         return "Rajada arcana";
+    }
+
+    //metodo para lançar um feitico gastando mana
+    public void lancarFeitico(Personagem alvo) throws SemManaException {
+        if (mana < 10) {
+            throw new SemManaException(mana);
+        }
+
+        mana -= 10;
+        System.out.println(getNome() + " lançou Rajada arcana em " + alvo.getNome() + " causando 20 de dano!");
+        alvo.receberDano(20);
     }
 }
